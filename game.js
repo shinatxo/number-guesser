@@ -86,6 +86,8 @@ guessButton.addEventListener('click', () => {
   humanScoreDisplay.innerText = humanScore;
   computerScoreDisplay.innerText = computerScore;
   
+  humanGuessInput.value = ''; // Clear the input field
+
   // Set the correct disabled state for the buttons
   guessButton.setAttribute('disabled', true)
   nextRoundButton.removeAttribute('disabled');
@@ -124,4 +126,10 @@ const handleValueChange = value => {
 
 humanGuessInput.addEventListener('input', function(e) {
   handleValueChange(e.target.value);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && !guessButton.disabled) {
+    guessButton.click();
+  }
 });
