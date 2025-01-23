@@ -31,6 +31,7 @@ function updateScore(winner) {
 
 function advanceRound() {
     currentRoundNumber++;
+    roundNumberDisplay.innerText = currentRoundNumber;
 }
 
 

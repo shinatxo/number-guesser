@@ -17,31 +17,7 @@ nextRoundButton.addEventListener('click', () => {
   targetNumber = generateTarget();
   advanceRound();
   roundNumberDisplay.innerText = currentRoundNumber;
-  targetNumberDisplay.innerText = '?';
-  humanGuessInput.value = '';
-  guessButton.innerText = 'Make a Guess';
-  guessButton.removeAttribute('disabled');
-  nextRoundButton.setAttribute('disabled', true);
-  computerGuessDisplay.innerText = '?';
-  computerWinsDisplay.innerText = '';
-  document.getElementById('user-wins-message').innerText = ''; // Clear user win message
-});
 
-const resetButton = document.getElementById('reset');
-
-// Reset button logic
-resetButton.addEventListener('click', () => {
-  // Reset scores
-  humanScore = 0;
-  computerScore = 0;
-  currentRoundNumber = 1;
-
-  // Update displays
-  humanScoreDisplay.innerText = 0;
-  computerScoreDisplay.innerText = 0;
-  roundNumberDisplay.innerText = currentRoundNumber;
-
-  // Reset game state
   targetNumberDisplay.innerText = '?';
   humanGuessInput.value = '';
   guessButton.innerText = 'Make a Guess';
@@ -50,7 +26,33 @@ resetButton.addEventListener('click', () => {
   nextRoundButton.setAttribute('disabled', true);
   computerGuessDisplay.innerText = '?';
   computerWinsDisplay.innerText = '';
+  document.getElementById('user-wins-message').innerText = '';
 });
+
+
+const resetButton = document.getElementById('reset');
+
+// Reset button logic
+resetButton.addEventListener('click', () => {
+  humanScore = 0;
+  computerScore = 0;
+  currentRoundNumber = 1;
+
+  humanScoreDisplay.innerText = 0;
+  computerScoreDisplay.innerText = 0;
+  roundNumberDisplay.innerText = currentRoundNumber;
+
+  targetNumberDisplay.innerText = '?';
+  humanGuessInput.value = '';
+  guessButton.innerText = 'Make a Guess';
+  guessButton.classList.remove('winning-text');
+  guessButton.removeAttribute('disabled');
+  nextRoundButton.setAttribute('disabled', true);
+  computerGuessDisplay.innerText = '?';
+  computerWinsDisplay.innerText = '';
+  document.getElementById('user-wins-message').innerText = '';
+});
+
 
 guessButton.addEventListener('click', () => {
   // Generate the target value
