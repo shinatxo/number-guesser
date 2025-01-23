@@ -73,18 +73,7 @@ guessButton.addEventListener('click', () => {
     nextRoundButton.removeAttribute('disabled');
 });
 
-nextRoundButton.addEventListener('click', () => {
-    targetNumber = generateTarget();
-    advanceRound();
-    roundNumberDisplay.innerText = currentRoundNumber;
-    targetNumberDisplay.innerText = '?';
-    humanGuessInput.value = '';
-    guessButton.innerText = 'Make a Guess';
-    guessButton.setAttribute('disabled', true);
-    nextRoundButton.setAttribute('disabled', true);
-    computerGuessDisplay.innerText = '?';
-    computerWinsDisplay.innerText = '';
-});
+
 
 nextRoundButton.addEventListener('click', () => {
     targetNumber = generateTarget();

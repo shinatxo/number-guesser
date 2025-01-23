@@ -13,6 +13,19 @@ const computerWinsDisplay = document.getElementById('computer-wins');
 const guessButton = document.getElementById('guess');
 const nextRoundButton = document.getElementById('next-round')
 
+nextRoundButton.addEventListener('click', () => {
+  targetNumber = generateTarget();
+  advanceRound();
+  roundNumberDisplay.innerText = currentRoundNumber;
+  targetNumberDisplay.innerText = '?';
+  humanGuessInput.value = '';
+  guessButton.innerText = 'Make a Guess';
+  guessButton.removeAttribute('disabled');
+  nextRoundButton.setAttribute('disabled', true);
+  computerGuessDisplay.innerText = '?';
+  computerWinsDisplay.innerText = '';
+});
+
 guessButton.addEventListener('click', () => {
   // Generate the target value
   target = generateTarget();
@@ -40,8 +53,6 @@ guessButton.addEventListener('click', () => {
     computerWinsDisplay.innerText = 'Computer Wins!!!';
   }
 
-  // winnerDisplay.innerText = humanIsWinner ? 'You win!' : 'Computer wins!';
-
   // Display the current scores:
   humanScoreDisplay.innerText = humanScore;
   computerScoreDisplay.innerText = computerScore;
@@ -58,16 +69,8 @@ nextRoundButton.addEventListener('click', () => {
   roundNumberDisplay.innerText = currentRoundNumber;
 
   // Set the correct disabled state for the buttons
-  nextRoundButton.setAttribute('disabled', true);
-  guessButton.removeAttribute('disabled');
-
-  // Reset the guess input box and the target number display:
-  targetNumberDisplay.innerText = '?';
-  guessButton.innerText = 'Make a Guess';
-  humanGuessInput.value = '';
-  computerGuessDisplay.innerText = '?';
-  computerWinsDisplay.innerText = '';
-  guessButton.classList.remove('winning-text');
+  guessButton.setAttribute('disabled', true);
+  nextRoundButton.removeAttribute('disabled');
 });
 
 const addButton = document.getElementById('add');
