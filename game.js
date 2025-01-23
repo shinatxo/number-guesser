@@ -24,6 +24,7 @@ nextRoundButton.addEventListener('click', () => {
   nextRoundButton.setAttribute('disabled', true);
   computerGuessDisplay.innerText = '?';
   computerWinsDisplay.innerText = '';
+  document.getElementById('user-wins-message').innerText = ''; // Clear user win message
 });
 
 const resetButton = document.getElementById('reset');
@@ -72,11 +73,13 @@ guessButton.addEventListener('click', () => {
 
   // Display the winner
   if (humanIsWinner) {
-    guessButton.innerText = 'You Win!!!!!';
-    guessButton.classList.toggle('winning-text')
+    const userWinsMessage = document.getElementById('user-wins-message');
+    userWinsMessage.innerText = 'You Win!!!!! Congratulations!';
+    userWinsMessage.style.color = '#4caf50'; // Green for a win
+    guessButton.classList.add('winning-text'); // Optional styling
   } else {
     computerWinsDisplay.innerText = 'Computer Wins!!!';
-  }
+  }  
 
   // Display the current scores:
   humanScoreDisplay.innerText = humanScore;
