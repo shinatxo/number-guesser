@@ -91,14 +91,21 @@ const addButton = document.getElementById('add');
 const subtractButton = document.getElementById('subtract');
 
 addButton.addEventListener('click', () => {
-  humanGuessInput.value = +humanGuessInput.value + 1;
-  handleValueChange(humanGuessInput.value);
+  const currentValue = parseInt(humanGuessInput.value);
+  humanGuessInput.value = currentValue + 1;
+  handleValueChange(parseInt(humanGuessInput.value));
 });
 
 subtractButton.addEventListener('click', () => {
-  humanGuessInput.value = +humanGuessInput.value - 1;
-  handleValueChange(humanGuessInput.value);
+  const currentValue = parseInt(humanGuessInput.value);
+  humanGuessInput.value = currentValue - 1;
+  handleValueChange(parseInt(humanGuessInput.value));
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  handleValueChange(parseInt(humanGuessInput.value));
+});
+
 
 const handleValueChange = value => {
   if (value > 0 && value <= 9) {
@@ -109,7 +116,7 @@ const handleValueChange = value => {
   } else if (value <= 0) {
     subtractButton.setAttribute('disabled', true);
   }
-}
+};
 
 humanGuessInput.addEventListener('input', function(e) {
   handleValueChange(e.target.value);
