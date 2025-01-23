@@ -14,10 +14,6 @@ function getAbsoluteDistance(num1, num2) {
 }
 
 function compareGuesses(humanGuess, computerGuess, targetNumber) {
-    if (humanGuess < 0 || humanGuess > 9) {
-        alert ('Your guess must be between 0 and 9.');
-        return false;
-    }
     const humanDifference = getAbsoluteDistance(targetNumber, humanGuess);
     const computerDifference = getAbsoluteDistance(targetNumber, computerGuess);
     return humanDifference <= computerDifference;
@@ -53,6 +49,8 @@ const validateInput = () => {
     const value = humanGuessInput.value;
     if (value < 0 || value > 9 || isNaN(value)) {
       guessButton.setAttribute('disabled', true);
+      alert('Please enter a number between 0 and 9');
+      return false;
     } else {
       guessButton.removeAttribute('disabled');
     }

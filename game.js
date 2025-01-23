@@ -44,6 +44,7 @@ resetButton.addEventListener('click', () => {
   targetNumberDisplay.innerText = '?';
   humanGuessInput.value = '';
   guessButton.innerText = 'Make a Guess';
+  guessButton.classList.remove('winning-text');
   guessButton.removeAttribute('disabled');
   nextRoundButton.setAttribute('disabled', true);
   computerGuessDisplay.innerText = '?';
@@ -83,17 +84,6 @@ guessButton.addEventListener('click', () => {
   
   // Set the correct disabled state for the buttons
   guessButton.setAttribute('disabled', true)
-  nextRoundButton.removeAttribute('disabled');
-});
-
-nextRoundButton.addEventListener('click', () => {
-  // Increase the round number
-  advanceRound();
-  // Display the new round number
-  roundNumberDisplay.innerText = currentRoundNumber;
-
-  // Set the correct disabled state for the buttons
-  guessButton.setAttribute('disabled', true);
   nextRoundButton.removeAttribute('disabled');
 });
 

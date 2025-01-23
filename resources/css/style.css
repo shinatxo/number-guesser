@@ -186,6 +186,11 @@ input[type=number]::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
+#reset:not([disabled]):hover {
+  background-color: #ff6666;
+  color: white;
+}
+
 .instructions {
   background-color: #ececec;
   width: 100%;
@@ -218,4 +223,15 @@ input[type=number]::-webkit-inner-spin-button {
   .guess {
     height: auto;
   }
+
+  .number-controls {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .button {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
 }
