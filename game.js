@@ -26,6 +26,30 @@ nextRoundButton.addEventListener('click', () => {
   computerWinsDisplay.innerText = '';
 });
 
+const resetButton = document.getElementById('reset');
+
+// Reset button logic
+resetButton.addEventListener('click', () => {
+  // Reset scores
+  humanScore = 0;
+  computerScore = 0;
+  currentRoundNumber = 1;
+
+  // Update displays
+  humanScoreDisplay.innerText = 0;
+  computerScoreDisplay.innerText = 0;
+  roundNumberDisplay.innerText = currentRoundNumber;
+
+  // Reset game state
+  targetNumberDisplay.innerText = '?';
+  humanGuessInput.value = '';
+  guessButton.innerText = 'Make a Guess';
+  guessButton.removeAttribute('disabled');
+  nextRoundButton.setAttribute('disabled', true);
+  computerGuessDisplay.innerText = '?';
+  computerWinsDisplay.innerText = '';
+});
+
 guessButton.addEventListener('click', () => {
   // Generate the target value
   target = generateTarget();
