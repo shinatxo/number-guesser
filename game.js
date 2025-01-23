@@ -79,6 +79,7 @@ guessButton.addEventListener('click', () => {
     guessButton.classList.add('winning-text'); // Optional styling
   } else {
     computerWinsDisplay.innerText = 'Computer Wins!!!';
+    computerWinsDisplay.classList.add('computer-wins-text');
   }  
 
   // Display the current scores:
