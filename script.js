@@ -47,6 +47,7 @@ const computerWinsDisplay = document.getElementById('computer-wins');
 
 const validateInput = () => {
     const value = humanGuessInput.value;
+    const feedback = document.getElementById('feedback');
     if (value < 0 || value > 9 || isNaN(value)) {
       guessButton.setAttribute('disabled', true);
       alert('Please enter a number between 0 and 9');

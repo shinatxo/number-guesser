@@ -232,6 +232,15 @@ input[type=number]::-webkit-inner-spin-button {
   .button {
     width: 100%;
     margin: 5px 0;
-  }
-  
+  }  
+}
+
+.feedback {
+  margin-top: 5px;
+}
+
+#feedback-message {
+  font-size: 14px;
+  color: red; /* Default color for error messages */
+  font-weight: bold;
 }
