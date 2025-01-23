@@ -214,7 +214,7 @@ input[type=number]::-webkit-inner-spin-button {
   transform: scale(1.1);
 }
 
-@media (max width: 640px) {
+@media (max-width: 640px) {
   .guess {
     height: auto;
   }
